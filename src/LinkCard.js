@@ -4,7 +4,7 @@ const LinkCard = ({ link, refreshLinks }) => {
   const handleArchive = async () => {
     link.archived = true;
     try {
-      const res = await axios.put("/api/updateLink", link);
+      const res = await axios.put("/.netlify/functions/updateLink", link);
       console.log("res :>> ", res);
       refreshLinks();
     } catch (error) {
@@ -14,7 +14,9 @@ const LinkCard = ({ link, refreshLinks }) => {
   const handleDelete = async () => {
     const id = link._id;
     try {
-      const res = await axios.delete("/api/deleteLink", { data: { id } });
+      const res = await axios.delete("/.netlify/functions/deleteLink", {
+        data: { id },
+      });
       console.log("res :>> ", res);
       refreshLinks();
     } catch (error) {

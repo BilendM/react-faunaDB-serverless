@@ -8,7 +8,7 @@ function App() {
 
   const loadLinks = async () => {
     try {
-      const res = await axios.get("/api/getLinks");
+      const res = await axios.get("/.netlify/functions/getLinks");
       const { data: links } = await res;
       setLinks(links);
     } catch (error) {

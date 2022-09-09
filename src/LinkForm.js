@@ -10,7 +10,7 @@ const LinkForm = ({ refreshLinks }) => {
     e.preventDefault();
     const body = { name, url, description };
     try {
-      const res = await axios.post("/api/createLink", body);
+      const res = await axios.post("/.netlify/functions/createLink", body);
       console.log("res :>> ", res);
       resetForm();
       refreshLinks();
